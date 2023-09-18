@@ -1,0 +1,1825 @@
+continuous_focus_palette = {
+	id = generic_focus
+	
+	country = {
+		factor = 1000
+	}
+	
+	default = yes
+	reset_on_civilwar = no
+			
+	position = { x = 50 y = 1000 }
+		
+	focus = {
+		id = ETH_strengthen_the_black_lions
+		
+		icon = GFX_focus_ETH_continuous_strengthen_the_black_lions
+		
+		available = {
+			hidden_trigger = { 
+				has_dlc = "By Blood Alone" 
+				original_tag = ETH 
+			}
+			has_completed_focus = ETH_anti-italian_propaganda
+			OR = {
+				is_government_in_exile = yes 
+				has_country_leader_with_trait = imperator_absentis
+			}
+		}
+
+		enable = {
+			any_owned_state = { NOT = { is_controlled_by = ROOT } }
+			
+		}
+
+		modifier = {
+			compliance_growth_on_our_occupied_states = -0.1
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				
+				all_owned_state = { is_controlled_by = ROOT }
+			}
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = ETH_supporting_the_arbegnoch
+		
+		icon = GFX_focus_ETH_continuous_supporting_the_arbegnoch
+		
+		available = {
+			hidden_trigger = { 
+				has_dlc = "By Blood Alone" 
+				original_tag = ETH 
+			}
+			has_completed_focus = ETH_the_patriots
+			OR = {
+				is_government_in_exile = yes 
+				has_country_leader_with_trait = imperator_absentis
+			}
+		}
+
+		enable = {
+			any_owned_state = { NOT = { is_controlled_by = ROOT } }
+			
+		}
+
+		modifier = {
+			resistance_growth_on_our_occupied_states = 0.1
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0		
+				all_owned_state = { is_controlled_by = ROOT }
+			}
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+	
+	focus = {
+		id = SWI_build_up_military_readiness
+		
+		icon = GFX_focus_SWI_continuous_build_up_military_readiness
+		
+		available = {
+			hidden_trigger = { 
+				has_dlc = "By Blood Alone" 
+				original_tag = SWI 
+			}
+		}
+
+		enable = {
+			has_completed_focus = SWI_armed_neutrality
+		}
+
+		modifier = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0		
+				all_owned_state = { is_controlled_by = ROOT }
+			}
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+				
+		available_if_capitulated = yes
+
+		select_effect = {
+			activate_mission = SWI_building_up_military_readiness_mission
+			set_country_flag = SWI_building_up_mr_cont_focus_active
+		}
+		
+
+		cancel_effect = {
+			clr_country_flag = SWI_building_up_mr_cont_focus_active
+		}
+	}
+	
+	focus = {
+		id = SWI_support_active_militias_continuous_focus
+		
+		icon = GFX_focus_SWI_continuous_support_active_militias
+		
+		available = {
+			hidden_trigger = { 
+				has_dlc = "By Blood Alone" 
+				original_tag = SWI
+			}
+		}
+
+		enable = {
+			has_dynamic_modifier = { modifier = SWI_active_citizen_militia }
+		}
+
+		modifier = {
+			modifier_army_sub_unit_militia_attack_factor = 0.3
+			modifier_army_sub_unit_militia_defence_factor = 0.3
+			modifier_army_sub_unit_militia_speed_factor = 0.3
+			modifier_army_sub_unit_militia_max_org_factor = 0.15
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0		
+				all_owned_state = { is_controlled_by = ROOT }
+			}
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+				
+		available_if_capitulated = yes
+
+		select_effect = {
+
+		}
+		
+
+		cancel_effect = {
+		
+		}
+	}
+
+	focus = {
+		id = continuous_naval_production
+		
+		icon = GFX_goal_continuous_naval_production
+		
+		available = {
+		}
+		
+		idea = continuous_naval_production
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25		
+				is_government_in_exile = yes 
+				original_tag = ETH
+			}
+		}
+		
+		supports_ai_strategy = ai_focus_naval
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_air_production
+		
+		icon = GFX_goal_continuous_air_production
+		
+		available = {
+		}
+		
+		idea = continuous_air_production
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25		
+				is_government_in_exile = yes 
+				original_tag = ETH 
+			}
+		}
+		
+		supports_ai_strategy = ai_focus_aviation
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+	
+	focus = {
+		id = continuous_non_factory_construct
+		
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		available = {
+		}
+		
+		
+		modifier = {
+			production_speed_infrastructure_factor = 0.1
+			production_speed_rail_way_factor = 0.1
+			production_speed_supply_node_factor = 0.1
+			production_speed_air_base_factor = 0.1
+			production_speed_naval_base_factor = 0.1
+			#production_speed_synthetic_refinery_factor = 0.1
+			production_speed_fuel_silo_factor = 0.1	
+			production_speed_rocket_site_factor = 0.1
+			production_speed_nuclear_reactor_factor = 0.1
+			production_speed_bunker_factor = 0.2
+			production_speed_coastal_bunker_factor = 0.2
+			production_speed_anti_air_building_factor = 0.2
+			production_speed_radar_station_factor = 0.2	
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25		
+				is_government_in_exile = yes 
+				original_tag = ETH 
+			}
+		}
+		
+		supports_ai_strategy = ai_focus_defense
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_reduce_training_time
+		
+		icon = GFX_goal_continuous_reduce_training_time
+		
+		available = {
+		}
+		
+		modifier = {
+			training_time_army_factor = -0.25
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25		
+				is_government_in_exile = yes  
+				original_tag = ETH
+			}
+		}
+		
+		supports_ai_strategy = ai_focus_defense
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_suppression
+		
+		icon = GFX_goal_continuous_suppression
+		
+		available = {
+		}
+		
+		modifier = {
+			resistance_target = -0.05
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				
+				num_occupied_states < 1
+			}
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_repair
+		
+		icon = GFX_goal_continuous_repairments
+		
+		available = {
+		}
+				
+		modifier = {
+			industry_repair_factor = 0.5
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				
+				has_damaged_buildings = no
+			}
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_tech_share
+		
+		icon = GFX_goal_continuous_research
+		
+		available = {
+			hidden_trigger = { has_dlc = "Together for Victory" }
+			
+		}
+
+		enable = {
+			is_in_faction = yes
+			num_faction_members > 1
+
+			custom_trigger_tooltip = {
+				tooltip = NO_OTHER_SHARING_GROUPS
+				OR = {
+					AND = {
+						is_in_tech_sharing_group = continuous_tech_share
+						num_tech_sharing_groups < 2
+					}
+					num_tech_sharing_groups < 1
+				}				
+			}
+		}
+		
+		select_effect = {
+			add_to_tech_sharing_group = continuous_tech_share
+		}
+		
+		cancel_effect = {
+			remove_from_tech_sharing_group = continuous_tech_share	
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+	
+	focus = {
+		id = continuous_boost_freedom
+		
+		icon = GFX_goal_continuous_boost_freedom
+		
+		available = {
+			hidden_trigger = {
+				has_dlc = "Together for Victory"
+				OR = {
+					has_government = democratic
+					has_government = communism
+					has_government = fascism
+					has_government = neutrality
+				} #Removes focus for Kaiser mods
+			}
+			is_subject = yes			
+		}
+		
+		modifier = {
+			autonomy_gain = 0.5
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_restrict_freedom
+		
+		icon = GFX_goal_continuous_restrict_freedom
+		
+		available = {
+			hidden_trigger = {
+				has_dlc = "Together for Victory"
+				OR = {
+					has_government = democratic
+					has_government = communism
+					has_government = fascism
+					has_government = neutrality
+				} #Removes focus for Kaiser mods
+			}			
+		}
+
+		enable = {
+			num_subjects > 0
+		}
+
+		modifier = {
+			custom_modifier_tooltip = subject_autonomy_mod_tt
+			hidden_modifier = { subjects_autonomy_gain = -0.5 }
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+##########################NEW CONTINUOUS FOCUSES#######################################
+
+	focus = {
+		id = continuous_increase_war_support
+		
+		icon = GFX_goal_generic_propaganda
+		
+		modifier = {
+			war_support_weekly = 0.001
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_aggressive
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_increase_stability
+		
+		icon = GFX_goal_generic_neutrality_focus
+		
+		modifier = {
+			stability_weekly = 0.001
+		}
+		
+		ai_will_do = {
+		
+			modifier = { 
+				has_stability > 0.5
+				factor = 0
+			}
+			
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+
+	focus = {
+		id = continuous_science_haven
+		
+		icon = GFX_focus_research2
+		
+		modifier = {
+			research_speed_factor = 0.40
+			consumer_goods_factor = 0.10
+			custom_modifier_tooltip = continuous_daily_pp_2_tt
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 2
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_foreign_volunteers
+		
+		icon = GFX_focus_generic_little_entente
+		
+		modifier = {
+			conscription = 0.10
+			non_core_manpower = 0.05
+			weekly_manpower = 10000
+			stability_factor = -0.35
+			consumer_goods_factor = 0.25
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_aggressive
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		#Inspired by Steam User: aday327
+		id = continuous_immigration
+		
+		icon = GFX_focus_generic_manpower
+
+		enable = {
+			has_manpower < 100000
+		}
+		modifier = {
+			weekly_manpower = 5000
+			stability_weekly = -0.0025
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_consumer_goods_investment
+		
+		icon = GFX_goal_generic_consumer_goods
+		
+		enable = {
+			NOT = {has_idea = tot_economic_mobilisation}
+		}
+
+		modifier = {
+			consumer_goods_factor = -0.10
+			supply_consumption_factor = -0.05
+			custom_modifier_tooltip = continuous_daily_pp_2_tt
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_war_production
+		
+		daily_cost = 2
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_land_doctrine_research
+		
+		icon = GFX_goal_generic_army_doctrines
+
+		enable = {
+			has_war_support > 0.15
+		}
+
+		modifier = {
+			land_doctrine_cost_factor = -0.33
+			experience_gain_army = 0.1
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_air_doctrine_research
+		
+		icon = GFX_goal_generic_air_doctrine
+
+		enable = {
+			has_war_support > 0.15
+		}
+
+		modifier = {
+			air_doctrine_cost_factor = -0.33
+			experience_gain_air = 0.1
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_aviation
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_naval_doctrine_research
+		
+		icon = GFX_goal_generic_navy_doctrines_tactics
+
+		enable = {
+			has_war_support > 0.15
+		}
+
+		modifier = {
+			naval_doctrine_cost_factor = -0.33
+			experience_gain_navy = 0.1
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_naval
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		#Inspired by Steam User: Anti Peanut Member
+		id = continuous_military_think_tank
+		
+		icon = GFX_goal_generic_cavalry
+
+		enable = {
+			has_war_support > 0.15
+		}
+		
+		modifier = {
+			command_power_gain = 0.5
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_aggresive
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_national_defense
+		
+		icon = GFX_goal_generic_defence
+
+		enable = {
+			has_war_support > 0.65
+			surrender_progress > 0.50
+		}
+		
+		modifier = {
+			army_core_defence_factor = 0.25
+			hidden_modifier = {
+				production_speed_buildings_factor = -1.00 #-100%
+				production_speed_bunker_factor = 2.50 #150%
+				production_speed_coastal_bunker_factor = 2.50 #150%
+			}
+			custom_modifier_tooltip = continuous_national_defense_tt
+			
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_defense
+		
+		daily_cost = 2
+		
+		available_if_capitulated = no
+	}
+
+	focus = {
+		#Inspired by Steam User: Burner345-BR
+		id = continuous_defense_in_depth
+		
+		icon = GFX_goal_generic_construct_military
+
+		enable = {
+			has_war_support > 0.15
+		}
+		
+		modifier = {
+			hidden_modifier = {
+				production_speed_buildings_factor = -0.75 #-75%
+				production_speed_bunker_factor = 1.75 #100%
+				production_speed_coastal_bunker_factor = 1.75 #100%
+				production_speed_anti_air_building_factor = 1.50 #75%
+			}
+			custom_modifier_tooltip = continuous_defense_in_depth_tt
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_defense
+		
+		daily_cost = 1
+		
+		available_if_capitulated = no
+	}
+
+	focus = {
+		id = continuous_resistance_suppression
+		
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+
+		enable = {
+			has_war = yes
+			any_controlled_state = {
+				has_resistance = yes
+			}
+		}
+		
+		modifier = {
+			resistance_target = -0.15
+			consumer_goods_factor = 0.10
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_aggressive
+		
+		daily_cost = 1
+		
+		available_if_capitulated = no
+	}
+
+	focus = {
+		#Inspired by Steam User: Burner345-BR
+		id = continuous_renounce_foreign_occupation
+		
+		icon = GFX_focus_spr_crush_the_revolution
+
+		enable = {
+			has_war = yes
+			has_capitulated = yes
+			has_war_support > 0.80
+		}
+		
+		modifier = {
+			resistance_target_on_our_occupied_states = 0.15
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_defense
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		#Inspired by Steam User: SlimeShady
+		id = continuous_work_with_local_leaders
+
+		icon = GFX_goal_generic_major_alliance
+
+		enable = {
+			num_occupied_states > 0
+		}
+
+		modifier = {
+			compliance_gain = 0.33
+			weekly_manpower = 1000
+		}
+
+		ai_will_do = {
+			
+			modifier = {
+				num_occupied_states > 0
+
+				factor = 2
+			}
+
+			modifier = {
+				num_occupied_states < 1
+
+				factor = 0
+			}
+
+			factor = 1
+			
+		}
+
+		supports_ai_strategy = ai_focus_aggressive
+			
+		daily_cost = 1
+
+		available_if_capitulated = no
+	}
+
+	focus = {
+		#Inspired by Steam User: SlimeShady
+		id = continuous_national_teachings
+
+		icon = GFX_goal_generic_national_unity
+
+		enable = {
+			num_occupied_states > 0
+		}
+
+		modifier = {
+			compliance_gain = 0.66
+			weekly_manpower = 2000
+			consumer_goods_factor = 0.05
+			custom_modifier_tooltip = continuous_daily_pp_2_tt
+		}
+
+		ai_will_do = {
+			
+			modifier = {
+				num_occupied_states > 0
+
+				factor = 2
+			}
+
+			modifier = {
+				num_occupied_states < 1
+
+				factor = 0
+			}
+
+			factor = 1
+			
+		}
+
+		supports_ai_strategy = ai_focus_aggressive
+			
+		daily_cost = 2
+
+		available_if_capitulated = no
+	}
+
+	focus = {
+		id = continuous_nationalism
+		
+		icon = GFX_focus_generic_military_mission
+
+		enable = {
+			has_war = yes
+		}		
+
+		modifier = {
+			surrender_limit = 0.10
+			custom_modifier_tooltip = continuous_daily_pp_3_tt
+		}
+		
+		ai_will_do = {
+			factor = 1	
+		}
+		
+		supports_ai_strategy = ai_focus_defence
+		
+		daily_cost = 3
+		
+		available_if_capitulated = no
+	}
+
+	##Beginning of Normal Ideologies##
+	
+	focus = {
+		id = continuous_political_correction_democratic
+		
+		icon = GFX_goal_support_democracy
+		
+		available = {
+			has_government = democratic
+		}
+		
+		enable = {
+			has_government = democratic
+		}
+
+		modifier = {
+			democratic_drift = 0.15
+			stability_weekly = -0.005
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_political_correction_communist
+		
+		icon = GFX_goal_support_communism
+		
+		available = {
+			has_government = communism
+		}
+		
+		enable = {
+			has_government = communism
+		}
+
+		modifier = {
+			communism_drift = 0.15
+			stability_weekly = -0.005
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_political_correction_fascist
+		
+		icon = GFX_goal_support_fascism
+		
+		available = {
+			has_government = fascism
+		}
+		
+		enable = {
+			has_government = fascism
+		}
+
+		modifier = {
+			fascism_drift = 0.15
+			stability_weekly = -0.005
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_political_correction_neutrality
+		
+		icon = GFX_focus_rom_royal_dictatorship
+		
+		available = {
+			has_government = neutrality
+		}
+
+		enable = {
+			has_government = neutrality
+		}
+
+		modifier = {
+			neutrality_drift = 0.15
+			stability_weekly = -0.005
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	##End of Normal Ideologies##
+
+	##Beginning of Kaiser Ideologies##
+
+	focus = {
+		id = continuous_totalist_principles
+		
+		icon = GFX_goal_ideology_totalist
+		
+		available = {
+			has_government = totalist
+		}
+
+		enable = {
+			has_government = totalist
+		}
+		
+		modifier = {
+			totalist_drift = 0.15
+			stability_weekly = -0.005
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_syndicalist_principles
+		
+		icon = GFX_goal_ideology_syndicalist
+		
+		available = {
+			has_government = syndicalist
+		}
+		
+		enable = {
+			has_government = syndicalist
+		}
+
+		modifier = {
+			syndicalist_drift = 0.15
+			stability_weekly = -0.005
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_radical_socialist_principles
+		
+		icon = GFX_goal_ideology_radical_socialist
+		
+		available = {
+			has_government = radical_socialist
+		}
+		
+		enable = {
+			has_government = radical_socialist
+		}
+
+		modifier = {
+			radical_socialist_drift = 0.15
+			stability_weekly = -0.005
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_social_democrat_principles
+		
+		icon = GFX_goal_ideology_social_democrat
+		
+		available = {
+			has_government = social_democrat
+		}
+
+		enable = {
+			has_government = social_democrat
+		}
+		
+		modifier = {
+			social_democrat_drift = 0.15
+			stability_weekly = -0.005
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_social_liberal_principles
+		
+		icon = GFX_goal_ideology_social_liberal
+		
+		available = {
+			has_government = social_liberal
+		}
+
+		enable = {
+			has_government = social_liberal
+		}
+		
+		modifier = {
+			social_liberal_drift = 0.15
+			stability_weekly = -0.005
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_market_liberal_principles
+		
+		icon = GFX_goal_ideology_market_liberal
+		
+		available = {
+			has_government = market_liberal
+		}
+		
+		enable = {
+			has_government = market_liberal
+		}
+
+		modifier = {
+			market_liberal_drift = 0.15
+			stability_weekly = -0.005
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_social_conservative_principles
+		
+		icon = GFX_goal_ideology_social_conservative
+		
+		available = {
+			has_government = social_conservative
+		}
+
+		enable = {
+			has_government = social_conservative
+		}		
+
+		modifier = {
+			social_conservative_drift = 0.15
+			stability_weekly = -0.005
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_authoritarian_democrat_principles
+		
+		icon = GFX_goal_ideology_authoritarian_democrat
+		
+		available = {
+			has_government = authoritarian_democrat
+		}
+
+		enable = {
+			has_government = authoritarian_democrat
+		}
+		
+		modifier = {
+			authoritarian_democrat_drift = 0.15
+			stability_weekly = -0.005
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_paternal_autocrat_principles
+		
+		icon = GFX_goal_ideology_paternal_autocrat
+		
+		available = {
+			has_government = paternal_autocrat
+		}
+
+		enable = {
+			has_government = paternal_autocrat
+		}
+		
+		modifier = {
+			paternal_autocrat_drift = 0.15
+			stability_weekly = -0.005
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_national_populist_principles
+		
+		icon = GFX_goal_ideology_national_populist
+		
+		available = {
+			has_government = national_populist
+		}
+
+		enable = {
+			has_government = national_populist
+		}
+		
+		modifier = {
+			national_populist_drift = 0.15
+			stability_weekly = -0.005
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	##End of Kaiser Ideologies##
+
+	focus = {
+		id = continuous_synthetic_nation
+		
+		icon = GFX_goal_generic_oil_refinery
+		
+		modifier = {
+			hidden_modifier = {
+				production_speed_buildings_factor = -1.00 #-100%
+				production_speed_synthetic_refinery_factor = 2.50 #150%
+			}
+			custom_modifier_tooltip = continuous_synthetic_nation_tt
+			
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = no
+	}	
+
+	
+	focus = {
+		id = continuous_infrastructure_improvements
+		
+		icon = GFX_goal_generic_construct_infrastructure
+		
+		modifier = {
+			hidden_modifier = {
+				production_speed_buildings_factor = -1.00 #-100%
+				production_speed_infrastructure_factor = 2.50 #150%
+				production_speed_rail_way_factor = 2.50 #150%
+				production_speed_supply_node_factor = 2.50 #150%
+			}
+			custom_modifier_tooltip = continuous_infrastructure_improvements_tt
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = no
+	}
+
+	focus = {
+		id = continuous_new_naval_structures
+		
+		icon = GFX_goal_generic_construct_naval_dockyard
+
+		enable = {
+			has_war_support > 0.15
+			any_controlled_state = {
+				is_coastal = yes
+			}
+		}
+
+		modifier = {
+			hidden_modifier = {
+				production_speed_dockyard_factor = 2.50
+				production_speed_naval_base_factor = 2.50
+				production_speed_buildings_factor = -1.00
+			}
+			custom_modifier_tooltip = continuous_new_naval_structures_tt
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_peacefull
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_exploit_natural_resources
+		
+		icon = GFX_goal_generic_positive_trade_relations
+		
+		modifier = {
+			local_resources_factor = 0.15
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = no
+	}
+
+	focus = {
+		#Inspired by Steam User: Maximilian Veers
+		id = continuous_lower_industrial_taxes
+		
+		icon = GFX_goal_generic_construct_civ_factory
+		
+		modifier = {
+			production_speed_industrial_complex_factor = 1.50
+			consumer_goods_factor = -0.10
+			production_speed_arms_factory_factor = -1.00
+			production_factory_max_efficiency_factor = -0.20
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		#Inspired by Steam User: Maximilian Veers
+		id = continuous_lower_military_taxes
+		
+		icon = GFX_goal_generic_construct_mil_factory
+		
+		modifier = {
+			production_speed_industrial_complex_factor = -1.00
+			consumer_goods_factor = 0.10
+			production_speed_arms_factory_factor = 1.50
+			production_factory_max_efficiency_factor = 0.20
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_war_production
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_industry_for_autonomy
+		
+		icon = GFX_focus_CZE_german_puppet
+		
+		available = {
+			hidden_trigger = { has_dlc = "Together for Victory" }
+		}
+
+		enable = {
+			is_subject = yes
+		}
+
+		modifier = {
+			custom_modifier_tooltip = continuous_industry_for_autonomy_tt
+			stability_factor = -0.15
+			hidden_modifier = { 
+				cic_to_overlord_factor = 0.20
+				mic_to_overlord_factor = 0.20
+				subjects_autonomy_gain = 2
+			}
+			
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_foreign_investments
+		
+		icon = GFX_focus_mex_privatisation
+		
+		modifier = {
+			political_power_gain = 1.00
+			custom_modifier_tooltip = continuous_daily_pp_0_tt
+			consumer_goods_factor = 0.05
+		}
+		
+		ai_will_do = {
+			factor = 1		
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 0
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_volunteers_program
+		
+		icon = GFX_focus_generic_military_academy
+
+		enable = {
+			NOT = { has_war = yes }
+			has_war_support > 0.15
+		}
+		
+		modifier = {
+			send_volunteer_size = 3
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_aggressive
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_temporary_agents
+		
+		icon = GFX_focus_prc_infiltration
+		
+		available = {
+			hidden_trigger = { has_dlc = "La Resistance" }
+		}
+
+		modifier = {
+			consumer_goods_factor = 0.05
+			operative_slot = 2
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_war_production
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_counter_intelligence
+		
+		icon = GFX_goal_continuous_counter_intelligence
+		
+		available = {
+			hidden_trigger = { has_dlc = "La Resistance" }
+		}
+
+		enable = {
+			has_intelligence_agency = yes
+			has_war_support > 0.15
+		}
+		
+		modifier = {
+			intelligence_agency_defense = 3.00
+			consumer_goods_factor = 0.05
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_infantry_equipment_research
+		
+		icon = GFX_goal_continuous_infantry_equipment
+
+		enable = {
+			has_war_support > 0.15
+		}
+
+		idea = ecf_infantry_equipment_research
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_air_equipment_research
+		
+		icon = GFX_goal_continuous_air_equipment
+
+		enable = {
+			has_war_support > 0.15
+		}
+
+		idea = ecf_air_equipment_research
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_naval_equipment_research
+		
+		icon = GFX_goal_naval_equipment_research
+		
+		enable = {
+			has_war_support > 0.15
+		}
+
+		idea = ecf_naval_equipment_research
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_naval
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_artillery_research
+		
+		icon = GFX_goal_artillery_research
+
+		enable = {
+			has_war_support > 0.15
+		}
+
+		idea = ecf_artillery_research
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_military_equipment
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_armor_research
+		
+		icon = GFX_goal_armor_research
+
+		enable = {
+			has_war_support > 0.15
+		}
+
+		idea = ecf_armor_research
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_aggressive
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_industry_research
+		
+		icon = GFX_goal_industry_research
+
+		idea = ecf_industry_research
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_peaceful
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_rocketry_research
+		
+		icon = GFX_focus_rocketry
+		
+		enable = {
+			threat > 0.75
+		}
+
+		idea = ecf_rocketry_research
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = continuous_nuclear_research
+		
+		icon = GFX_focus_wonderweapons
+
+		enable = {
+			threat > 0.95
+		}
+
+		idea = ecf_nuclear_research
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		supports_ai_strategy = ai_focus_military_advancements
+		
+		daily_cost = 1
+		
+		available_if_capitulated = yes
+	}
+}
